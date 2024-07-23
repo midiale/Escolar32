@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<div >
+
+    <p>Chave PIX CPF:</p>
+    <strong id="pix-key" title="Copiar chave PIX" style="color: blue; text-decoration: underline;">13407943814</strong>
+    <h3>R$ @Model.ValorParcela</h3>
+    @* <img class="img-fluid" src="/Imagens/qr-code-plus.png" width="100" /> *@
+        
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const pixKeyElement = document.getElementById("pix-key");
+
+        pixKeyElement.addEventListener("click", function () {
+            const tempTextarea = document.createElement("textarea");
+            tempTextarea.value = pixKeyElement.innerText;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            tempTextarea.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            document.body.removeChild(tempTextarea);
+            alert("Chave PIX copiada com sucesso!");
+        });
+
+        pixKeyElement.addEventListener("mouseover", function () {
+            pixKeyElement.style.cursor = "pointer";
+            pixKeyElement.style.color = "red"; // Altera a cor para indicar que é clicável
+        });
+
+        pixKeyElement.addEventListener("mouseout", function () {
+            pixKeyElement.style.cursor = "auto";
+            pixKeyElement.style.color = "blue"; // Restaura a cor original
+        });
+    });
+</script>

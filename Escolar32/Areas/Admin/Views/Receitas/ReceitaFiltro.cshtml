@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Escolar32.Models.Receita>
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceitaNome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataReceita)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceitaDetalhe)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValorReceita)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    decimal totalReceita = 0;
+                    var orderedModel = Model.OrderBy(item => item.DataReceita);
+                    var rowClass = "even-row";
+
+                    foreach (var item in orderedModel)
+                    {
+                        totalReceita += item.ValorReceita;
+                        <tr class="@rowClass">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReceitaNome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataReceita)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReceitaDetalhe)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ValorReceita)
+                            </td>
+                            <td>
+                                <a class="fa-solid fa-trash-can red-icon" asp-action="Delete" asp-route-id="@item.ReceitaId"></a>
+                                <a class="fa-regular fa-pen-to-square" asp-action="Edit" asp-route-id="@item.ReceitaId"></a>
+                            </td>
+                        </tr>
+                        rowClass = (rowClass == "even-row") ? "odd-row" : "even-row";
+                    }
+                    <tr>
+                        <td></td>
+                        <td colspan="2" style="text-align: center; font-weight: bold">Total das Receitas</td>
+                        <td><strong>@totalReceita</strong></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <a asp-action="Receitas">Voltar</a>
+    </div>
+</div>

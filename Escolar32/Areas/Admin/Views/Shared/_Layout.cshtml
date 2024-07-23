@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro Escolar 32</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Escolar32.styles.css" asp-append-version="true" />
+    <style>       
+        .nav-item-financeiro .nav-link {
+            color: white !important;
+        }
+        .nav-item-dropdown .dropdown-menu .dropdown-item {
+            color: black !important;
+            background-color: #fff !important;
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6376202055425764"
+            crossorigin="anonymous">
+    </script>
+</head>
+<body class="row no-gutters ">
+    <header>
+        <div class="topo container-fluid ">
+            <h1 class="h1">E &nbsp;S&nbsp; C&nbsp; O&nbsp; L&nbsp; A&nbsp; R&nbsp;&nbsp;   3&nbsp; 2</h1>
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacao" aria-controls="navegacao" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navegacao">
+
+                    <ul class="navbar-nav col justify-content-center">
+
+                        <li class="nav-item me-sm-3">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
+                        </li>
+                        <li class="nav-item me-sm-3">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Admin" asp-action="Index">Alunos</a>
+                        </li>
+                        <li class="nav-item me-sm-3">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Escolas" asp-action="Index">Escolas</a>
+                        </li>
+                        <li class="nav-item me-sm-3">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Bairros" asp-action="Index">Bairros</a>
+                        </li>
+                        <li class="nav-item me-sm-3">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="ExAluno" asp-action="List">Ex Alunos</a>
+                        </li>
+                        <li class="nav-item dropdown nav-item-financeiro">
+                            <a href="#" class="nav-link dropdown-toggle" id="financeiroDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Financeiro</a>
+                            <div class="dropdown-menu" aria-labelledby="financeiroDropdown">
+                                <a href="/Admin/Relatorios/Pagamentos" class="dropdown-item">Pagamentos</a>
+                                <a href="/Admin/Despesas/Create" class="dropdown-item">Cadastrar Despesa</a>
+                                <a href="/Admin/Receitas/Create" class="dropdown-item">Cadastrar Receita</a>                               
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown nav-item-financeiro">
+                            <a href="#" class="nav-link dropdown-toggle" id="financeiroDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relatórios</a>
+                            <div class="dropdown-menu" aria-labelledby="financeiroDropdown">
+                                <a href="/Admin/Relatorios/Lucros" class="dropdown-item">Lucros</a>
+                                <a href="/Admin/Despesas/Despesas" class="dropdown-item">Despesas</a>
+                                <a href="/Admin/Receitas/Receitas" class="dropdown-item">Receitas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item me-sm-3">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="AdminImagens" asp-action="Index">Imagens</a>
+                        </li>
+                    </ul>
+                    @await Html.PartialAsync("_LoginPartial")
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                    }
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <partial name="_Footer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/JavaScript.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

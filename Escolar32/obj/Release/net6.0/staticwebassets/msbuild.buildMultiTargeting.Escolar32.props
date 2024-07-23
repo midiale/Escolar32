@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Escolar32.props" />
+</Project>

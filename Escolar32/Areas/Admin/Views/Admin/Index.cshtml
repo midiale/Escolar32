@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Escolar32.Models.Aluno>
+
+<div class="container">
+    <div class="row">
+        <h1>Relação dos alunos cadastrados</h1>
+        <p>
+            <a class="fa-solid fa-file-circle-plus green-icon" asp-action="Create"></a>
+        </p>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Escola.EscolaNome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Periodo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Serie)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumeroCasa)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Bairro)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var orderedModel = Model.OrderBy(item => item.Nome, StringComparer.CurrentCultureIgnoreCase);
+                        var rowClass = "even-row";
+                        var count = 1;
+
+                        foreach (var item in orderedModel)
+                        {
+                            <tr class="@rowClass">
+                                <td>@count</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Escola.EscolaNome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Periodo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Serie)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Endereco)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumeroCasa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Bairro)
+                                </td>
+                                <td>
+                                    <a class="fa-solid fa-circle-info" asp-action="Details" asp-route-id="@item.AlunoId"></a>
+                                    <a class="fa-regular fa-pen-to-square" asp-action="Edit" asp-route-id="@item.AlunoId"></a>
+                                </td>
+                            </tr>
+                            rowClass = (rowClass == "even-row") ? "odd-row" : "even-row";
+                            count++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

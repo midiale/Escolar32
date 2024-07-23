@@ -1,0 +1,25 @@
+﻿@model Escolar32.Models.Bairro
+
+<h1>Cadastro de Bairro</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BairroNome" class="control-label"></label>
+                <input asp-for="BairroNome" class="form-control" />
+                <span asp-validation-for="BairroNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-area="Admin" asp-controller="Admin" asp-action="Index">Voltar para a lista de alunos</a>
+</div>
+

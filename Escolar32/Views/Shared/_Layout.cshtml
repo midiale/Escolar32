@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Escolar 32 </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Escolar32.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="shortcut icon" href="~/meutransporteescolar.jpeg">
+
+</head>
+<body class="row">
+    <header>
+        <div class="topo container-fluid ">
+            <a class="whats" href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5513991846502" target=" _blank">
+                <img src="~/imagens/whatsapp.png" width="60">
+                <br />Orçamento
+            </a>
+            <h1 class="h1">E &nbsp;S&nbsp; C&nbsp; O&nbsp; L&nbsp; A&nbsp; R&nbsp;&nbsp;   3&nbsp; 2</h1>
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacao" 
+                        aria-controls="navegacao" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navegacao">
+
+                    <ul class="navbar-nav col justify-content-center">
+
+                        <li class="nav-item me-sm-5">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
+                        </li>
+                        <li class="nav-item me-sm-5">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Escolas" asp-action="Escolas">Escolas</a>
+                        </li>
+                        <li class="nav-item me-sm-5">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Bairros" asp-action="Bairros">Bairros</a>
+                        </li>
+                        <li class="nav-item me-sm-5">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Fotos" asp-action="Fotos">Fotos</a>
+                        </li>
+                    </ul>
+                    
+                    @await Html.PartialAsync("_LoginPartial")
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                    }
+                    @if (User.IsInRole("Member"))
+                    {
+                        <a class="nav-link text-light" asp-area="Usuario" asp-controller="Home" asp-action="Aluno">Usuário</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mb-0">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <partial name="_Footer" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/JavaScript.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@model Escolar32.Models.Receita
+
+<h1>Editar</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReceitaId" />
+            <div class="form-group">
+                <label asp-for="ReceitaNome" class="control-label"></label>
+                <input asp-for="ReceitaNome" class="form-control" />
+                <span asp-validation-for="ReceitaNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorReceita" class="control-label"></label>
+                <input asp-for="ValorReceita" class="form-control" />
+                <span asp-validation-for="ValorReceita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataReceita" class="control-label"></label>
+                <input asp-for="DataReceita" class="form-control" />
+                <span asp-validation-for="DataReceita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceitaDetalhe" class="control-label"></label>
+                <input asp-for="ReceitaDetalhe" class="form-control" />
+                <span asp-validation-for="ReceitaDetalhe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Despesas">Voltar</a>
+</div>
+

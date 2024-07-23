@@ -1,0 +1,40 @@
+﻿@model Escolar32.Models.Despesa
+
+<h1>Apagar Despesa</h1>
+
+<div>
+    <h4>Despesa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-12">
+            @Html.DisplayNameFor(model => model.DespesaNome)
+        </dt>
+        <dd class = "col-sm-12">
+            @Html.DisplayFor(model => model.DespesaNome)
+        </dd>
+        <dt class="col-sm-12">
+            @Html.DisplayNameFor(model => model.DataDespesa)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.DataDespesa)
+        </dd>
+        <dt class="col-sm-12">
+            @Html.DisplayNameFor(model => model.DespesaDetalhe)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.DespesaDetalhe)
+        </dd>
+        <dt class = "col-sm-12">
+            @Html.DisplayNameFor(model => model.ValorDespesa)
+        </dt>
+        <dd class = "col-sm-12">
+            @Html.DisplayFor(model => model.ValorDespesa)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DespesaId" />
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="Despesas">Voltar para a lista</a>
+    </form>
+</div>

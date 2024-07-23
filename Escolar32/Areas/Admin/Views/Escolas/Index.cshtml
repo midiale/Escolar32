@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Escolar32.Models.Escola>
+
+<div class="container">
+
+<div class="row">
+    <h1>Lista de Escolas</h1>
+
+        <div>
+            <strong>Cadastrar Escola</strong>
+            <a class="fa-solid fa-file-circle-plus green-icon" asp-action="Create"></a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EscolaNome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @{
+                    var orderedModel = Model.OrderBy(item => item.EscolaNome, StringComparer.CurrentCultureIgnoreCase);
+                    var rowClass = "even-row";
+                    
+                    foreach (var item in orderedModel)
+                    {
+                        <tr class="@rowClass">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EscolaNome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Endereco)
+                        </td>
+                        <td>
+                                <a class="fa-regular fa-pen-to-square" asp-action="Edit" asp-route-id="@item.EscolaId"></a> |
+                                <a class="fa-solid fa-trash-can red-icon"asp-action="Delete" asp-route-id="@item.EscolaId"></a>
+                        </td>
+                    </tr>
+                            rowClass = (rowClass == "even-row") ? "odd-row" : "even-row";
+                    }
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

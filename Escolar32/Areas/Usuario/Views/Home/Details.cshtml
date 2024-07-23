@@ -1,0 +1,415 @@
+﻿@* @model Escolar32.Models.Aluno
+
+<div class="row">
+
+    <p>Usuário:<strong> @Model.NomeUsuario</strong>| Data do Cadastro: <strong>@Model.DataCadastro </strong></p>
+    <hr />
+          
+    <h3><strong>@Html.DisplayFor(model => model.Nome)</strong></h3>
+    <hr />
+    <dl>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNasc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataNasc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mae)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mae)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pai)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pai)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroCasa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroCasa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Complemento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Complemento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone3)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VanAnterior)
+            @Html.DisplayFor(model => model.VanAnterior)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>@Html.DisplayNameFor(model => model.QualEscolar)</strong>
+            @Html.DisplayFor(model => model.QualEscolar)
+        </dd>
+
+    </dl>
+    <hr />
+    <h3><strong>ESCOLA</strong></h3>
+    <hr />
+    <dl>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Escola.EscolaNome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Escola.EscolaNome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Serie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Serie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Periodo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Periodo)
+        </dd>
+    </dl>
+    
+    <hr />
+    <div><h3><strong>CONTRATO</strong></h3>
+        <a class="fa-regular fa-eye" asp-controller="AdminContratoReport" asp-action="ContratosReport2" asp-route-id="@Model?.AlunoId"></a> |
+        <a class="fa-regular fa-file-pdf red-icon" asp-controller="AdminContratoReport" asp-action="ContratoPDF" asp-route-id="@Model?.AlunoId"></a>
+    </div>
+        <hr />
+    <dl>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RespFinan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RespFinan)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profissao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profissao)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.FirmaRec)
+            @Html.DisplayFor(model => model.FirmaRec)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>@Html.DisplayNameFor(model => model.Cartorio)</strong>
+            @Html.DisplayFor(model => model.Cartorio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InicioPgto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InicioPgto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FimPgto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FimPgto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ValorParcela)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ValorParcela)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QtdeParcelas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QtdeParcelas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalContrato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalContrato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataFim)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataFim)
+        </dd>
+    </dl>
+
+</div>
+ *@
+ @model Escolar32.Models.Aluno
+
+<div class="row">
+
+    <p>Usuário:<strong> @Model.NomeUsuario</strong>| Data do Cadastro: <strong>@Model.DataCadastro </strong></p>
+    <hr />
+
+    <h3><strong>@Html.DisplayFor(model => model.Nome)</strong></h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNasc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataNasc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mae)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mae)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pai)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pai)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroCasa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroCasa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Complemento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Complemento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone3)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VanAnterior)
+            @Html.DisplayFor(model => model.VanAnterior)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>@Html.DisplayNameFor(model => model.QualEscolar)</strong>
+            @Html.DisplayFor(model => model.QualEscolar)
+        </dd>
+
+    </dl>
+    <hr />
+    <h3><strong>ESCOLA</strong></h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Escola.EscolaNome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Escola.EscolaNome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Serie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Serie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Periodo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Periodo)
+        </dd>
+    </dl>
+
+    <hr />
+    <div>
+        <h3><strong>CONTRATO</strong></h3>
+        <a class="fa-regular fa-eye" asp-controller="AdminContratoReport" asp-action="ContratosReport2" asp-route-id="@Model?.AlunoId"></a> |
+        <a class="fa-regular fa-file-pdf red-icon" asp-controller="AdminContratoReport" asp-action="ContratoPDF" asp-route-id="@Model?.AlunoId"></a>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RespFinan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RespFinan)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profissao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profissao)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.FirmaRec)
+            @Html.DisplayFor(model => model.FirmaRec)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>@Html.DisplayNameFor(model => model.Cartorio)</strong>
+            @Html.DisplayFor(model => model.Cartorio)
+        </dd>
+        <dd></dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InicioPgto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InicioPgto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FimPgto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FimPgto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ValorParcela)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ValorParcela)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QtdeParcelas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QtdeParcelas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalContrato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalContrato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataFim)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataFim)
+        </dd>
+    </dl>
+
+</div>

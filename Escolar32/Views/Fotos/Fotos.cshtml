@@ -1,0 +1,21 @@
+﻿@model FileManagerModel
+
+@if (Model.Files != null)
+{
+    <hr />
+    var caminho = Model.PathImagesProduto;
+    <div class="row justify-content-between">
+
+        @foreach (FileInfo file in Model.Files)
+        {
+            <div class="align-self-center col-sm-4 m-3" style="height: 200px; width: 200px; border:10px ridge rgb(140,30, 30) ">
+
+                <a href="~/@caminho/@file.Name">
+                    <img src="~/@caminho/@file.Name" style="height: 100%; width: 100%;" title="@file.Name" asp-append-version="true">
+                </a>
+            </div>
+        }
+        
+    </div>
+    <hr />
+}

@@ -1,0 +1,205 @@
+﻿@model IEnumerable<Escolar32.Models.Aluno>
+
+<div class="container">
+    <div class="row">
+        <h1>Relação de Pagamentos</h1>
+        <div class="table-responsive col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th></th>
+                        <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                        <th>@Html.DisplayNameFor(model => model.Jan)</th>
+                        <th>@Html.DisplayNameFor(model => model.Fev)</th>
+                        <th>@Html.DisplayNameFor(model => model.Mar)</th>
+                        <th>@Html.DisplayNameFor(model => model.Abr)</th>
+                        <th>@Html.DisplayNameFor(model => model.Mai)</th>
+                        <th>@Html.DisplayNameFor(model => model.Jun)</th>
+                        <th>@Html.DisplayNameFor(model => model.Jul)</th>
+                        <th>@Html.DisplayNameFor(model => model.Ago)</th>
+                        <th>@Html.DisplayNameFor(model => model.Set)</th>
+                        <th>@Html.DisplayNameFor(model => model.Out)</th>
+                        <th>@Html.DisplayNameFor(model => model.Nov)</th>
+                        <th>@Html.DisplayNameFor(model => model.Dez)</th>                  
+                  
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var orderedModel = Model.OrderBy(item => item.Nome, StringComparer.CurrentCultureIgnoreCase);
+                        var rowClass = "even-row";
+                        var count = 1;
+                        foreach (var item in orderedModel)
+                        {
+                            <tr class="@rowClass">
+                                <td>@count - </td>                            
+                                <td>
+                                    <a class="fa-solid fa-circle-info" asp-controller="Admin" asp-action="Details" asp-route-id="@item.AlunoId"></a>
+                                    <a class="fa-regular fa-pen-to-square" asp-controller="Admin" asp-action="Edit" asp-route-id="@item.AlunoId"></a>
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                                <td>
+                                    @if (item.Jan)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Fev)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Mar)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Abr)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Mai)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Jun)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Jul)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Ago)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Set)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Out)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Nov)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Dez)
+                                    {
+                                        <span class="indicador green-icon">&#10003;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="indicador red-icon">&#10007;</span>
+                                    }
+                                </td>                            
+                            
+                            </tr>
+                            rowClass = (rowClass == "even-row") ? "odd-row" : "even-row";
+                            count++;
+                        }
+                    }
+                
+                    <tr>
+                        <td colspan="2" style="text-align: center; font-weight: bold">Total Mês</td>
+                        @{
+                        
+                            decimal[] totalMeses = new decimal[12];
+
+                            foreach (var item in orderedModel)
+                            {
+                                for (int i = 0; i < 12; i++)
+                                {
+                                    if (i == 0 && item.Jan) totalMeses[i] += item.ValorParcela;
+                                    if (i == 1 && item.Fev) totalMeses[i] += item.ValorParcela;
+                                    if (i == 2 && item.Mar) totalMeses[i] += item.ValorParcela;
+                                    if (i == 3 && item.Abr) totalMeses[i] += item.ValorParcela;
+                                    if (i == 4 && item.Mai) totalMeses[i] += item.ValorParcela;
+                                    if (i == 5 && item.Jun) totalMeses[i] += item.ValorParcela;
+                                    if (i == 6 && item.Jul) totalMeses[i] += item.ValorParcela;
+                                    if (i == 7 && item.Ago) totalMeses[i] += item.ValorParcela;
+                                    if (i == 8 && item.Set) totalMeses[i] += item.ValorParcela;
+                                    if (i == 9 && item.Out) totalMeses[i] += item.ValorParcela;
+                                    if (i == 10 && item.Nov) totalMeses[i] += item.ValorParcela;
+                                    if (i == 11 && item.Dez) totalMeses[i] += item.ValorParcela;
+                                }
+                            }
+                            <td></td>
+                            foreach (var total in totalMeses)
+                            {
+                                <td>|@total|</td>
+                            }
+                        }
+                        <td></td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

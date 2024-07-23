@@ -1,0 +1,288 @@
+﻿@model Escolar32.ViewModels.CadastroViewModel
+
+<div class="row">
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Aluno.AlunoId" />
+        <input type="hidden" asp-for="Aluno.DataCadastro" />
+        <input type="hidden" asp-for="Aluno.NomeUsuario" />
+
+        <h3><strong>P A G A M E N T O S</strong></h3>
+        <div class="form-group form-check col-md-6">
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Jan" /> @Html.DisplayNameFor(model => model.Aluno.Jan) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Fev" /> @Html.DisplayNameFor(model => model.Aluno.Fev) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Mar" /> @Html.DisplayNameFor(model => model.Aluno.Mar) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Abr" /> @Html.DisplayNameFor(model => model.Aluno.Abr) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Mai" /> @Html.DisplayNameFor(model => model.Aluno.Mai) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Jun" /> @Html.DisplayNameFor(model => model.Aluno.Jun) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Jul" /> @Html.DisplayNameFor(model => model.Aluno.Jul) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Ago" /> @Html.DisplayNameFor(model => model.Aluno.Ago) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Set" /> @Html.DisplayNameFor(model => model.Aluno.Set) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Out" /> @Html.DisplayNameFor(model => model.Aluno.Out) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Nov" /> @Html.DisplayNameFor(model => model.Aluno.Nov) |
+            </label>
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.Dez" /> @Html.DisplayNameFor(model => model.Aluno.Dez) |
+            </label>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+            <h2><strong>@Html.DisplayFor(model => model.Aluno.Nome)</strong></h2>
+        </div>
+        <br />
+        <div class="form-group form-check col-md-6">
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="Aluno.ExAluno" /> @Html.DisplayNameFor(model => model.Aluno.ExAluno)
+            </label>
+        </div>
+        <div class="form-group col-md-4">
+            <strong>
+                <label asp-for="Aluno.Nome" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Nome" class="form-control" placeholder="Informe o nome do aluno" />
+            <span asp-validation-for="Aluno.Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.DataNasc" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.DataNasc" class="form-control" />
+            <span asp-validation-for="Aluno.DataNasc" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <strong>
+                <label asp-for="Aluno.Mae" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Mae" class="form-control" />
+            <span asp-validation-for="Aluno.Mae" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <strong>
+                <label asp-for="Aluno.Pai" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Pai" class="form-control" />
+            <span asp-validation-for="Aluno.Pai" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <strong>
+                <label asp-for="Aluno.Cep" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Cep" class="form-control" id="Cep" />
+            <span asp-validation-for="Aluno.Cep" class="text-danger"></span>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-md-4">
+                <strong>
+                    <label asp-for="Aluno.Endereco" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Endereco" class="form-control" id="Endereco" readonly />
+                <span asp-validation-for="Aluno.Endereco" class="text-danger" id="Endereco"></span>
+            </div>
+
+            <div class="form-group col-md-1">
+                <strong>
+                    <label asp-for="Aluno.NumeroCasa" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.NumeroCasa" class="form-control" />
+                <span asp-validation-for="Aluno.NumeroCasa" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-1 ">
+            <strong>
+                <label asp-for="Aluno.Complemento" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Complemento" class="form-control" placeholder="Ap, fundos, altos, etc" />
+            <span asp-validation-for="Aluno.Complemento" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Bairro" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Bairro" class="form-control" id="Bairro" />
+            <span asp-validation-for="Aluno.Bairro" class="text-danger" id="Bairro"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Cidade" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Cidade" class="form-control" id="Cidade" />
+            <span asp-validation-for="Aluno.Cidade" class="text-danger" id="Cidade"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Telefone1" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Telefone1" class="form-control" placeholder="Mãe, Pai, Avó, Tia" id="phone" oninput="mask(this, mphone);" />
+            <span asp-validation-for="Aluno.Telefone1" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Telefone2" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Telefone2" class="form-control" placeholder="Mãe, Pai, Avó, Tia" id="phone" oninput="mask(this, mphone);" />
+            <span asp-validation-for="Aluno.Telefone2" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Telefone3" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Telefone3" class="form-control" placeholder="Mãe, Pai, Avó, Tia" id="phone" oninput="mask(this, mphone);" />
+            <span asp-validation-for="Aluno.Telefone3" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong><label asp-for="Aluno.VanAnterior" class="control-label"></label></strong>
+            @Html.RadioButtonFor(s => s.Aluno.VanAnterior, value: "true")Sim
+            @Html.RadioButtonFor(s => s.Aluno.VanAnterior, value: "false")Não
+            <span asp-validation-for="Aluno.VanAnterior" class="text-danger"></span>
+            <input asp-for="Aluno.QualEscolar" class="form-control" placeholder="Se sim, informe o nome do tio?" />
+            <span asp-validation-for="Aluno.QualEscolar" class="text-danger"></span>
+        </div>
+        <hr />
+        <h3><strong>E S C O L A</strong></h3>
+        <hr />
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Escola" class="control-label"></label>
+            </strong>
+            <div> @Html.DropDownListFor(s => s.Aluno.EscolaId, Model.ComboEscolas, "Selecione uma Escola")</div>
+            <span asp-validation-for="Aluno.EscolaId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-1">
+            <strong>
+                <label asp-for="Aluno.Serie" class="control-label"></label>
+            </strong>
+            <div>
+                @Html.DropDownListFor(s => s.Aluno.Serie, Model.ComboSeries, "Série")
+            </div>
+            <span asp-validation-for="Aluno.Serie" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Periodo" class="control-label"></label>
+            </strong>
+            <div>
+                @Html.RadioButtonFor(s => s.Aluno.Periodo, value: "Manhã")Manhã
+                @Html.RadioButtonFor(s => s.Aluno.Periodo, value: "Tarde")Tarde
+                <span asp-validation-for="Aluno.Periodo" class="text-danger"></span>
+            </div>
+        </div>
+        <hr />
+        <h3><strong>C O N T R A T O</strong></h3>
+        <hr />
+        <div class="form-group col-md-4">
+            <strong>
+                <label asp-for="Aluno.RespFinan" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.RespFinan" class="form-control" placeholder="Informe o responsável pelo contrato" />
+            <span asp-validation-for="Aluno.RespFinan" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Rg" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Rg" class="form-control" placeholder="00.000.000-0" />
+            <span asp-validation-for="Aluno.Rg" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.Cpf" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Cpf" class="form-control" placeholder="Somente números" oninput="mascara(this,'cpf')" id="cpf" />
+            <span asp-validation-for="Aluno.Cpf" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <strong>
+                <label asp-for="Aluno.Email" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Email" class="form-control" />
+            <span asp-validation-for="Aluno.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <strong>
+                <label asp-for="Aluno.Profissao" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.Profissao" class="form-control" />
+            <span asp-validation-for="Aluno.Profissao" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <strong> <label asp-for="Aluno.FirmaRec" class="control-label"></label></strong>
+            @Html.RadioButtonFor(s => s.Aluno.FirmaRec, value: "true")Sim
+            @Html.RadioButtonFor(s => s.Aluno.FirmaRec, value: "false")Não
+            <span asp-validation-for="Aluno.FirmaRec" class="text-danger"></span>
+
+            <input asp-for="Aluno.Cartorio" class="form-control" placeholder="Se souber, informe o nome do cartório" />
+            <span asp-validation-for="Aluno.Cartorio" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.InicioPgto" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.InicioPgto" class="form-control" />
+            <span asp-validation-for="Aluno.InicioPgto" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <strong>
+                <label asp-for="Aluno.ValorParcela" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.ValorParcela" class="form-control" id="valorParcela" onkeyup="formatarValor(this)" />
+            <span asp-validation-for="Aluno.ValorParcela" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-1">
+            <strong>
+                <label asp-for="Aluno.QtdeParcelas" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.QtdeParcelas" class="form-control" />
+            <span asp-validation-for="Aluno.QtdeParcelas" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.DataInicio" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.DataInicio" class="form-control" />
+            <span asp-validation-for="Aluno.DataInicio" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.DataFim" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.DataFim" class="form-control" />
+            <span asp-validation-for="Aluno.DataFim" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+        </div>
+        <br />
+    </form>
+
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
