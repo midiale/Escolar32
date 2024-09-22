@@ -7,16 +7,13 @@ namespace Escolar32.ViewModels
     public class CadastroViewModel
     {
         public Aluno Aluno { get; set; }
-
-        public Escola Escola { get; set; }
-
-        public Bairro Bairro { get; set; }
-
         public List<SelectListItem> ComboEscolas { get; set; }
-
         public List<SelectListItem> ComboSeries { get; set; }
-
+        public string CnhType { get; set; }
+        public string VeiculoType { get; set; }
+        public string EnderecoOpcao { get; set; } // "Responsavel", "Outro", "Escola"
     }
+
     public class LoginViewModel
     {
 

@@ -301,7 +301,7 @@ namespace Escolar32.Areas.Admin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Pagamentos", "Relatorios");
             }
             return View(cadastro);
         }

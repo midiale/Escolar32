@@ -1925,3 +1925,4 @@ C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Debug\net6
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Debug\net6.0\Escolar32.pdb
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Debug\net6.0\Escolar32.genruntimeconfig.cache
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Debug\net6.0\ref\Escolar32.dll
+C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Debug\net6.0\Escolar32.sourcelink.json

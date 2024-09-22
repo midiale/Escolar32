@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Escolar32.Models.Aluno>
 
-<div class="container">
+<div class="container-fluid ms-0">
     <div class="row">
         <h1>Relação de Pagamentos</h1>
-        <div class="table-responsive col-12">
+        <div class="table-responsive col-12 ms-0">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>N°</th>
-                        <th></th>
-                        <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                        <th class="fixed-column">N°</th>
+                        <th class="fixed-column"></th>
+                        <th class="fixed-column">Nome</th>
                         <th>@Html.DisplayNameFor(model => model.Jan)</th>
                         <th>@Html.DisplayNameFor(model => model.Fev)</th>
                         <th>@Html.DisplayNameFor(model => model.Mar)</th>
@@ -33,13 +33,13 @@
                         foreach (var item in orderedModel)
                         {
                             <tr class="@rowClass">
-                                <td>@count - </td>                            
-                                <td>
-                                    <a class="fa-solid fa-circle-info" asp-controller="Admin" asp-action="Details" asp-route-id="@item.AlunoId"></a>
-                                    <a class="fa-regular fa-pen-to-square" asp-controller="Admin" asp-action="Edit" asp-route-id="@item.AlunoId"></a>
+                                <td class="fixed-column">@count - </td>
+                                <td class="fixed-column">
+                                    <a class="fa-solid fa-circle-info fixed-column" asp-controller="Admin" asp-action="Details" asp-route-id="@item.AlunoId"></a>
+                                    <a class="fa-regular fa-pen-to-square fixed-column" asp-controller="Admin" asp-action="Edit" asp-route-id="@item.AlunoId"></a>
                                 </td>
-                                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                                <td>
+                                <td class="fixed-column">@Html.DisplayFor(modelItem => item.Nome)</td>
+                                <td >
                                     @if (item.Jan)
                                     {
                                         <span class="indicador green-icon">&#10003;</span>

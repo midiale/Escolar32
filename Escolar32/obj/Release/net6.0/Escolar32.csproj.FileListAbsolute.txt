@@ -623,6 +623,7 @@ C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\ne
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\Escolar32.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\Escolar32.RazorAssemblyInfo.cache
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\Escolar32.RazorAssemblyInfo.cs
+C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\Escolar32.sourcelink.json
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\staticwebassets.build.json
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\staticwebassets.development.json
 C:\Users\midia\Documents\UDEMY\MVC\ESCOLAR 32\Escolar32\Escolar32\obj\Release\net6.0\staticwebassets\msbuild.Escolar32.Microsoft.AspNetCore.StaticWebAssets.props

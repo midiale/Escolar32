@@ -13231,11 +13231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\midia\\Documents\\UDEMY\\MVC\\ESCOLAR 32\\Escolar32\\Escolar32\\Escolar32.csproj",
+      "projectUniqueName": "C:\\Users\\midia\\Documents\\ESTUDOS\\Escolar32\\Escolar32\\Escolar32.csproj",
       "projectName": "Escolar32",
-      "projectPath": "C:\\Users\\midia\\Documents\\UDEMY\\MVC\\ESCOLAR 32\\Escolar32\\Escolar32\\Escolar32.csproj",
+      "projectPath": "C:\\Users\\midia\\Documents\\ESTUDOS\\Escolar32\\Escolar32\\Escolar32.csproj",
       "packagesPath": "C:\\Users\\midia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\midia\\Documents\\UDEMY\\MVC\\ESCOLAR 32\\Escolar32\\Escolar32\\obj\\",
+      "outputPath": "C:\\Users\\midia\\Documents\\ESTUDOS\\Escolar32\\Escolar32\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -13377,5 +13377,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Azure.Identity' 1.11.1 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

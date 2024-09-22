@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dMZCw6EI8aSUudBkdIzmGKa/ZV3fOemHSUQlKfF8DceOH4c/dWFkvEEmAw463Hng/U8rq2Jspoul+WlIuCm/4w==",
+  "dgSpecHash": "+JKNWxRW7krVNLb4F0yRSkkA3oYCOIs9LeFOqnK30KrUPRx5oPx5RbzUN2+ltBEe9goX1EokmGEyApbHdz0qDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\midia\\Documents\\UDEMY\\MVC\\ESCOLAR 32\\Escolar32\\Escolar32\\Escolar32.csproj",
+  "projectFilePath": "C:\\Users\\midia\\Documents\\ESTUDOS\\Escolar32\\Escolar32\\Escolar32.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\midia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\midia\\.nuget\\packages\\azure.identity\\1.11.1\\azure.identity.1.11.1.nupkg.sha512",
@@ -239,5 +239,16 @@
     "C:\\Users\\midia\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\midia\\.nuget\\packages\\viacep\\4.1.474\\viacep.4.1.474.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Azure.Identity' 1.11.1 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
