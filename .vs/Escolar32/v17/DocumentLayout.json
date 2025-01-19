@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\alexandre.neves\\Documents\\ALEXANDRE\\BKUP 13 10 24\\Documentos\\ESTUDOS\\Escolar32\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{39AD1195-9288-4557-BB63-5859EFE45F93}|Itens de Solu\u00E7\u00E3o{39AD1195-9288-4557-BB63-5859EFE45F93}|C:\\Users\\alexandre.neves\\Documents\\ALEXANDRE\\BKUP 13 10 24\\Documentos\\ESTUDOS\\Escolar32\\.gitignore.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{39AD1195-9288-4557-BB63-5859EFE45F93}|Itens de Solu\u00E7\u00E3o{39AD1195-9288-4557-BB63-5859EFE45F93}|solutionrelative:.gitignore.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{409575AB-538C-437D-9ACE-C022C6DCF1BD}|Escolar32\\Escolar32.csproj|c:\\users\\alexandre.neves\\documents\\alexandre\\bkup 13 10 24\\documentos\\estudos\\escolar32\\escolar32\\services\\servicoemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{409575AB-538C-437D-9ACE-C022C6DCF1BD}|Escolar32\\Escolar32.csproj|solutionrelative:escolar32\\services\\servicoemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -81,29 +72,8 @@
               "Name": "ST:0:0:{cab27b98-a314-48d2-9746-efe8ba39ccb0}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore.txt",
-              "DocumentMoniker": "C:\\Users\\alexandre.neves\\Documents\\ALEXANDRE\\BKUP 13 10 24\\Documentos\\ESTUDOS\\Escolar32\\.gitignore.txt",
-              "RelativeDocumentMoniker": ".gitignore.txt",
-              "ToolTip": "C:\\Users\\alexandre.neves\\Documents\\ALEXANDRE\\BKUP 13 10 24\\Documentos\\ESTUDOS\\Escolar32\\.gitignore.txt",
-              "RelativeToolTip": ".gitignore.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-01-19T14:44:18.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ServicoEmail.cs",
-              "DocumentMoniker": "C:\\Users\\alexandre.neves\\Documents\\ALEXANDRE\\BKUP 13 10 24\\Documentos\\ESTUDOS\\Escolar32\\Escolar32\\Services\\ServicoEmail.cs",
-              "RelativeDocumentMoniker": "Escolar32\\Services\\ServicoEmail.cs",
-              "ToolTip": "C:\\Users\\alexandre.neves\\Documents\\ALEXANDRE\\BKUP 13 10 24\\Documentos\\ESTUDOS\\Escolar32\\Escolar32\\Services\\ServicoEmail.cs",
-              "RelativeToolTip": "Escolar32\\Services\\ServicoEmail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T14:34:58.25Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
