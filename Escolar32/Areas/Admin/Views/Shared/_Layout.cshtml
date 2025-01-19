@@ -61,7 +61,7 @@
                         <li class="nav-item dropdown nav-item-financeiro">
                             <a href="#" class="nav-link dropdown-toggle" id="financeiroDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relatórios</a>
                             <div class="dropdown-menu" aria-labelledby="financeiroDropdown">
-                                <a href="/Admin/Relatorios/Lucros" class="dropdown-item">Lucros</a>
+                                <a href="#" id="abrir-popup" class="dropdown-item">Lucros</a>
                                 <a href="/Admin/Despesas/Despesas" class="dropdown-item">Despesas</a>
                                 <a href="/Admin/Receitas/Receitas" class="dropdown-item">Receitas</a>
                             </div>
@@ -75,6 +75,8 @@
                     {
                         <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
                     }
+
+                    <div id="popup-container" style="display: none;"></div>
 
                 </div>
             </div>

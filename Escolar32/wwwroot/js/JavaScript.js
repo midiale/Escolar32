@@ -1,4 +1,39 @@
-﻿//Máscara de CPF
+﻿// Função para validar a senha conforme os critérios
+function validaSenha() {
+    let maiusculo = /(?=.*[A-Z]).*$/;
+    let minusculo = /(?=.*[a-z]).*$/;
+    let digito = /(?=.*[0-9]).*$/;
+    let especiais = /(?=.*\W+).*/;
+
+    let senha = $("#passwordInput").val();
+    let validMaiusculo = senha.match(maiusculo);
+    let validMinusculo = senha.match(minusculo);
+    let validDigito = senha.match(digito);
+    let validEspeciais = senha.match(especiais);
+    let validComprimento = senha.length >= 8;
+
+    if (senha.length >= 8) $("#Valida1").removeClass("text-danger").addClass("text-success");
+    else $("#Valida1").removeClass("text-success").addClass("text-danger");
+
+    if (senha.match(maiusculo)) $("#Valida2").removeClass("text-danger").addClass("text-success");
+    else $("#Valida2").removeClass("text-success").addClass("text-danger");
+
+    if (senha.match(minusculo)) $("#Valida3").removeClass("text-danger").addClass("text-success");
+    else $("#Valida3").removeClass("text-success").addClass("text-danger");
+
+    if (senha.match(digito)) $("#Valida4").removeClass("text-danger").addClass("text-success");
+    else $("#Valida4").removeClass("text-success").addClass("text-danger");
+
+    if (senha.match(especiais)) $("#Valida5").removeClass("text-danger").addClass("text-success");
+    else $("#Valida5").removeClass("text-success").addClass("text-danger");
+
+    if (validComprimento && validMaiusculo && validMinusculo && validDigito && validEspeciais) {
+        $("#validationContainer").css("background-color", "lightgreen");
+    } else {
+        $("#validationContainer").css("background-color", "");
+    }
+}
+//Máscara de CPF
 function mascara(i, t)
 {
     if (t === "cpf")
@@ -113,6 +148,57 @@ function controlarExibicao(elemento, radioButtonName) {
         });
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const abrirPopup = document.getElementById("abrir-popup");
+    const popup = document.getElementById("popup-container");
+
+    if (abrirPopup && popup) {
+        // Abrir o popup e carregar os anos dinamicamente
+        abrirPopup.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            // Fazer uma requisição AJAX para carregar os anos
+            fetch("/Admin/Relatorios/Popup")
+                .then((response) => {
+                    if (!response.ok) throw new Error("Erro ao carregar o popup.");
+                    return response.text();
+                })
+                .then((html) => {
+                    popup.innerHTML = html; // Inserir o conteúdo no popup
+                    popup.style.display = "block"; // Mostrar o popup
+
+                    // Adicionar evento ao dropdown para redirecionar ao selecionar o ano
+                    const dropdown = document.getElementById("dropdown-anos");
+                    if (dropdown) {
+                        dropdown.addEventListener("change", () => {
+                            const anoSelecionado = dropdown.value;
+
+                            if (anoSelecionado) {
+                                // Redirecionar para a página Lucros com o ano selecionado
+                                window.location.href = `/Admin/Relatorios/Lucros?ano=${anoSelecionado}`;
+                            }
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error("Erro ao carregar o popup:", error);
+                });
+        });
+    }
+
+    window.formatDecimalInput = function (input) {
+        // Substitui todos os pontos por vírgulas
+        input.value = input.value.replace(/\./g, ',');
+    };
+
+    window.formatOnBlur = function (input) {
+        // Remove espaços desnecessários e ajusta a formatação decimal
+        input.value = input.value.trim().replace(/\./g, ',');
+    };
+
+
+});
 
 // Chama a função para os elementos relevantes
 controlarExibicao(document.getElementById('qualEscolarGroup'), 'Aluno.VanAnterior');

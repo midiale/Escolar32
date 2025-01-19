@@ -1,6 +1,6 @@
 ﻿@model Escolar32.ViewModels.CadastroViewModel
 
-<div class="row">
+<div class="row" style="margin-left: 50px;">
     <div class="col-md-12">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -42,7 +42,7 @@
                 <strong>
                     <label asp-for="Aluno.Cep" class="control-label"></label>
                 </strong>
-                <input asp-for="Aluno.Cep" class="form-control" id="Cep" />
+                <input asp-for="Aluno.Cep" class="form-control" id="Cep" placeholder="apenas números" />
                 <span asp-validation-for="Aluno.Cep" class="text-danger"></span>
             </div>
             <div class="row">

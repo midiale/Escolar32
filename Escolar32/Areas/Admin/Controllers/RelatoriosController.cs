@@ -15,7 +15,7 @@ namespace Escolar32.Areas.Admin.Controllers
         public RelatoriosController(AppDbContext context)
         {
             _context = context;
-        }
+        }               
 
         public IActionResult Pagamentos()
         {
@@ -24,12 +24,27 @@ namespace Escolar32.Areas.Admin.Controllers
 
             return View(alunos.Where(x => x.ExAluno == false));
         }
-        public IActionResult Lucros()
+
+        public IActionResult Popup()
         {
+            // Obtém os anos distintos de AnoDespesa na tabela Despesas
+            var anosDespesaDistintos = _context.Despesas
+                .Select(d => d.AnoDespesa)
+                .Distinct()
+                .OrderBy(ano => ano)
+                .ToList();
+
+            return PartialView("_PopupAnos", anosDespesaDistintos);
+
+        }
+
+        public async Task<IActionResult> Lucros(int? ano)
+        {
+           
             // Obter os dados do banco de dados
             var alunos = _context.Alunos.ToList();
-            var receitas = _context.Receitas.ToList();
-            var despesas = _context.Despesas.ToList();
+            var receitas = _context.Receitas.Where(r => !ano.HasValue || r.AnoReceita == ano).ToList();
+            var despesas = _context.Despesas.Where(d => !ano.HasValue || d.AnoDespesa == ano).ToList();
 
             // Calcular os totais mensais de receitas, despesas e pagamentos
             decimal[] totalReceitas = CalcularTotalPorMes(receitas);
@@ -52,6 +67,7 @@ namespace Escolar32.Areas.Admin.Controllers
 
             return View(viewModel);
         }
+
 
         private decimal[] CalcularTotalPorMes(IEnumerable<dynamic> items)
         {

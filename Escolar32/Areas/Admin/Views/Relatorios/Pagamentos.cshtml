@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Escolar32.Models.Aluno>
 
+<script src="~/js/pagamentos.js"></script>
+
 <div class="container-fluid ms-0">
     <div class="row">
         <h1>Relação de Pagamentos</h1>
@@ -42,121 +44,181 @@
                                 <td >
                                     @if (item.Jan)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Jan" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Fev)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Fev" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Mar)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Mar" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Abr)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Abr" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Mai)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Mai" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Jun)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Jun" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Jul)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Jul" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Ago)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Ago" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Set)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Set" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Out)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Out" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Nov)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Nov" />
+                                        </label>
                                     }
                                 </td>
                                 <td>
                                     @if (item.Dez)
                                     {
-                                        <span class="indicador green-icon">&#10003;</span>
+                                        <span class="indicador green-icon">@item.ValorParcela.ToString("F0")</span>
                                     }
                                     else
                                     {
-                                        <span class="indicador red-icon">&#10007;</span>
+                                        <label class="form-check-label indicador red-icon">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   data-id="@item.AlunoId"
+                                                   data-mes="Dez" />
+                                        </label>
                                     }
                                 </td>                            
                             
@@ -203,3 +265,5 @@
         </div>
     </div>
 </div>
+
+

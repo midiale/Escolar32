@@ -7,7 +7,7 @@ namespace Escolar32.Services
     {
         public static async Task EnviaEmailAsync(string email, string assunto, string mensagem)
         {
-            var apiKey = "";
+            
             var client = new SendGridClient(apiKey);
 
             var from = new EmailAddress("contato@meutransporteescolar.com.br");

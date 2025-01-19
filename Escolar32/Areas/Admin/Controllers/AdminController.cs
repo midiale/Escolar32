@@ -101,7 +101,7 @@ namespace Escolar32.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(int id, [Bind("AlunoId,Nome,NomeUsuario,DataNasc,Mae,Pai,Cep,Endereco,NumeroCasa,Complemento,Bairro,Cidade,Telefone1,Telefone2,Telefone3," +
                                                                 "VanAnterior,QualEscolar,EscolaId,Serie,Periodo,RespFinan,Rg,Cpf,Email,Profissao,FirmaRec," +
-                                                                "Cartorio,ValorParcela,QtdeParcelas,TotalContrato,DataCadastro,ExAluno,DataInicio, DataFim, " +
+                                                                "Cartorio,ValorParcela,QtdeParcelas,TotalContrato,DataCadastro,ExAluno, DataContrato, DataInicio, DataFim, " +
                                                                 "InicioPgto, FimPgto, Pago, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez")] Aluno aluno)
         {
 
@@ -237,7 +237,7 @@ namespace Escolar32.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("AlunoId,Nome,NomeUsuario,DataNasc,Mae,Pai,Cep,Endereco,NumeroCasa,Complemento,Bairro,Cidade,Telefone1,Telefone2,Telefone3," +
                                                                 "VanAnterior,QualEscolar,EscolaId,Serie,Periodo,RespFinan,Rg,Cpf,Email,Profissao,FirmaRec," +
-                                                                "Cartorio,ValorParcela,QtdeParcelas,TotalContrato,DataCadastro,ExAluno,DataInicio, DataFim, " +
+                                                                "Cartorio,ValorParcela,QtdeParcelas,TotalContrato,DataCadastro,ExAluno,DataInicio,DataContrato, DataFim, " +
                                                                 "InicioPgto, FimPgto, Pago, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez")]Aluno aluno)
         {
             aluno.TotalContrato = aluno.ValorParcela * aluno.QtdeParcelas;
@@ -346,6 +346,73 @@ namespace Escolar32.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("List", "ExAluno");
         }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AtualizarPagamento([FromBody] DadosPagamento dadosPagamento)
+        {
+            var id = dadosPagamento.aluno.AlunoId;
+
+            // Valida se o ID do aluno é válido
+            if (id != dadosPagamento.aluno.AlunoId)
+            {
+                return NotFound();
+            }
+
+            // Busca o aluno no banco de dados
+            var alunoDb = await _context.Alunos.FindAsync(id);
+            if (alunoDb == null)
+            {
+                return NotFound();
+            }
+
+            // Atualiza somente o mês clicado
+            foreach (var property in dadosPagamento.aluno.GetType().GetProperties())
+            {
+                if (property.PropertyType == typeof(bool?) || property.PropertyType == typeof(bool))
+                {
+                    var value = (bool?)property.GetValue(dadosPagamento.aluno);
+                    if (value == true)
+                    {
+                        var dbProperty = alunoDb.GetType().GetProperty(property.Name);
+                        if (dbProperty != null)
+                        {
+                            dbProperty.SetValue(alunoDb, true);
+                        }
+                    }
+                }
+            }
+
+            try
+            {
+                // Salva as alterações no banco de dados
+                _context.Update(alunoDb);
+                await _context.SaveChangesAsync();
+                TempData["MensagemSucesso"] = "Pagamento atualizado com sucesso!";
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AlunoExists(dadosPagamento.aluno.AlunoId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(); // Retorna um status de sucesso
+        }
+
+
+        // Novo tipo para mapear os dados da requisição
+        public class DadosPagamento
+        {
+            public int id { get; set; }
+            public Aluno aluno { get; set; }
+        }
+
 
         private bool AlunoExists(int id)
         {

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ReflectionIT.Mvc.Paging;
 using FastReport.Data;
 using Escolar32.Areas.Admin.Services;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -39,6 +40,11 @@ builder.Services.AddAuthorization(options =>
             politica.RequireRole("Member");
         });
 });
+
+// Configurar cultura para aceitar separadores decimais personalizados
+var cultureInfo = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -77,17 +83,14 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Home}/{id?}");
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Home}/{id?}");
 
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Home}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Home}/{id?}");
 
-});
 
 app.Run();
 void CriarPerfisUsuarios(WebApplication app)

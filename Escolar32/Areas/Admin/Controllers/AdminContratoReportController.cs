@@ -41,8 +41,8 @@ public class AdminContratoReportController : Controller
         var total = Conversor.EscreverExtenso(totalContrato);
         var valorParcela = _context.Alunos.Include(y => y.Escola).FirstOrDefault(a => a.AlunoId == Id).ValorParcela;
         var parcela = Conversor.EscreverExtenso(valorParcela);
-        var dataCadastro = _context.Alunos.FirstOrDefault(a => a.AlunoId == Id).DataCadastro;
-        var dataFormatada = dataCadastro.ToString("dd 'de' MMMM 'de' yyyy", new CultureInfo("pt-BR"));
+        var dataContrato = _context.Alunos.FirstOrDefault(a => a.AlunoId == Id).DataContrato;
+        var dataFormatada = dataContrato.ToString("dd 'de' MMMM 'de' yyyy", new CultureInfo("pt-BR"));
         var webReport = new WebReport();
         webReport.Report.Load(Path.Combine(_webHostEnv.ContentRootPath,
                             "wwwroot/reports", "Contrato.frx"));
@@ -59,7 +59,7 @@ public class AdminContratoReportController : Controller
         webReport.Report.SetParameterValue("EscolaNome", escolaNome);
         webReport.Report.SetParameterValue("total", total);
         webReport.Report.SetParameterValue("Parcela", parcela);
-        webReport.Report.SetParameterValue("DataCadastro", dataFormatada);
+        webReport.Report.SetParameterValue("DataContrato", dataFormatada);
 
         return View(webReport);
     }
@@ -72,8 +72,8 @@ public class AdminContratoReportController : Controller
         var valorParcela = _context.Alunos.Include(y => y.Escola).FirstOrDefault(a => a.AlunoId == Id).ValorParcela;
         var parcela = Conversor.EscreverExtenso(valorParcela);
         var alunoNome = _context.Alunos.FirstOrDefault(a => a.AlunoId == Id).Nome;
-        var dataCadastro = _context.Alunos.FirstOrDefault(a => a.AlunoId == Id).DataCadastro;
-        var dataFormatada = dataCadastro.ToString("dd 'de' MMMM 'de' yyyy", new CultureInfo("pt-BR"));
+        var dataContrato = _context.Alunos.FirstOrDefault(a => a.AlunoId == Id).DataContrato;
+        var dataFormatada = dataContrato.ToString("dd 'de' MMMM 'de' yyyy", new CultureInfo("pt-BR"));
         var webReport = new WebReport();
         webReport.Report.Load(Path.Combine(_webHostEnv.ContentRootPath,
                             "wwwroot/reports", "Contrato.frx"));
@@ -90,7 +90,7 @@ public class AdminContratoReportController : Controller
         webReport.Report.SetParameterValue("EscolaNome", escolaNome);
         webReport.Report.SetParameterValue("total", total);
         webReport.Report.SetParameterValue("Parcela", parcela);
-        webReport.Report.SetParameterValue("DataCadastro", dataFormatada);
+        webReport.Report.SetParameterValue("DataContrato", dataFormatada);
 
         bool v = webReport.Report.Prepare();
 
@@ -99,7 +99,7 @@ public class AdminContratoReportController : Controller
         webReport.Report.Export(new PDFSimpleExport(), stream);
         stream.Position = 0;
         var primeiroNome = alunoNome.Split(' ')[0];
-        return File(stream, "application/pdf", $"{primeiroNome}_Contrato.pdf");
+        return File(stream, "application/pdf", $"{primeiroNome}_Contrato2025.pdf");
                
     }
 }

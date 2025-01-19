@@ -145,6 +145,11 @@ namespace Escolar32.Models
         [BindProperty, DataType(DataType.Date)]
         public DateTime DataFim { get; set; }
 
+        [Display(Name = "Data do Contrato")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [BindProperty, DataType(DataType.Date)]
+        public DateTime DataContrato { get; set; }
+
         [Display(Name = "Data do Cadastro")]
         [DataType(DataType.Text)]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = false)]
@@ -175,7 +180,8 @@ namespace Escolar32.Models
         public bool Nov { get; set; }
 
         public bool Dez { get; set; }
-        
+
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (DataInicio.AddDays(30) < DataCadastro)

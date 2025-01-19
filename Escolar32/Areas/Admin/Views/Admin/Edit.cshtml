@@ -1,6 +1,6 @@
 ﻿@model Escolar32.ViewModels.CadastroViewModel
 
-<div class="row">
+<div class="row" style="margin-left: 50px;">
 
     <form asp-action="Edit">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -90,7 +90,7 @@
             <strong>
                 <label asp-for="Aluno.Cep" class="control-label"></label>
             </strong>
-            <input asp-for="Aluno.Cep" class="form-control" id="Cep" />
+            <input asp-for="Aluno.Cep" class="form-control" id="Cep" placeholder="apenas números" />
             <span asp-validation-for="Aluno.Cep" class="text-danger"></span>
         </div>
         <div class="row">
@@ -238,18 +238,28 @@
             <input asp-for="Aluno.Cartorio" class="form-control" placeholder="Se souber, informe o nome do cartório" />
             <span asp-validation-for="Aluno.Cartorio" class="text-danger"></span>
         </div>
+
+        <div class="form-group col-md-2">
+            <strong>
+                <label asp-for="Aluno.DataContrato" class="control-label"></label>
+            </strong>
+            <input asp-for="Aluno.DataContrato" class="form-control campo-data" placeholder="Dia " />
+            <span asp-validation-for="Aluno.DataContrato" class="text-danger"></span>
+        </div>
         <div class="form-group col-md-2">
             <strong>
                 <label asp-for="Aluno.InicioPgto" class="control-label"></label>
             </strong>
-            <input asp-for="Aluno.InicioPgto" class="form-control" />
+            <input asp-for="Aluno.InicioPgto" class="form-control"/>
             <span asp-validation-for="Aluno.InicioPgto" class="text-danger"></span>
         </div>
         <div class="form-group col-md-1">
             <strong>
                 <label asp-for="Aluno.ValorParcela" class="control-label"></label>
             </strong>
-            <input asp-for="Aluno.ValorParcela" class="form-control" id="valorParcela" onkeyup="formatarValor(this)" />
+            <input asp-for="Aluno.ValorParcela" class="form-control" id="valorParcela"
+                   oninput="window.formatDecimalInput(this)"
+                   onblur="window.formatOnBlur(this)" />
             <span asp-validation-for="Aluno.ValorParcela" class="text-danger"></span>
         </div>
 

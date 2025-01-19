@@ -1,0 +1,207 @@
+﻿@model Escolar32.ViewModels.CadastroViewModel
+
+<div class="row" style="margin-left: 50px;">
+    <div class="col-md-12">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Aluno.NomeUsuario" />
+
+            <h3><strong>A L U N O</strong></h3>
+            <hr />
+
+            <div class="form-group col-md-4">
+                <strong>
+                    <label asp-for="Aluno.Nome" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Nome" class="form-control" />
+                <span asp-validation-for="Aluno.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.DataNasc" class="control-label"></label>
+                </strong>
+                <input id="dataNasc" asp-for="Aluno.DataNasc" class="form-control" />
+                <span asp-validation-for="Aluno.DataNasc" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <strong>
+                    <label asp-for="Aluno.Mae" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Mae" class="form-control" />
+                <span asp-validation-for="Aluno.Mae" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <strong>
+                    <label asp-for="Aluno.Pai" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Pai" class="form-control" />
+                <span asp-validation-for="Aluno.Pai" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-1">
+                <strong>
+                    <label asp-for="Aluno.Cep" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Cep" class="form-control" id="Cep" placeholder="apenas números" />
+                <span asp-validation-for="Aluno.Cep" class="text-danger"></span>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-md-4">
+                    <strong>
+                        <label asp-for="Aluno.Endereco" class="control-label"></label>
+                    </strong>
+                    <input asp-for="Aluno.Endereco" class="form-control" id="Endereco" readonly />
+                    <span asp-validation-for="Aluno.Endereco" class="text-danger" id="Endereco"></span>
+                </div>
+
+                <div class="form-group col-md-1">
+                    <strong>
+                        <label asp-for="Aluno.NumeroCasa" class="control-label"></label>
+                    </strong>
+                    <input asp-for="Aluno.NumeroCasa" class="form-control" />
+                    <span asp-validation-for="Aluno.NumeroCasa" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-1">
+                <strong>
+                    <label asp-for="Aluno.Complemento" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Complemento" class="form-control" placeholder="Ap, fds, etc" />
+                <span asp-validation-for="Aluno.Complemento" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Bairro" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Bairro" class="form-control" id="Bairro" readonly />
+                <span asp-validation-for="Aluno.Bairro" class="text-danger" id="Bairro"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Cidade" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Cidade" class="form-control" id="Cidade" readonly />
+                <span asp-validation-for="Aluno.Cidade" class="text-danger" id="Cidade"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Telefone1" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Telefone1" class="form-control" placeholder="Mãe, Pai, Avó, Tia" id="phone" oninput="mask(this, mphone);" />
+                <span asp-validation-for="Aluno.Telefone1" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Telefone2" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Telefone2" class="form-control" placeholder="Mãe, Pai, Avó, Tia" id="phone" oninput="mask(this, mphone);" />
+                <span asp-validation-for="Aluno.Telefone2" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Telefone3" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Telefone3" class="form-control" placeholder="Mãe, Pai, Avó, Tia" id="phone" oninput="mask(this, mphone);" />
+                <span asp-validation-for="Aluno.Telefone3" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.VanAnterior" class="control-label"></label>
+                </strong>
+                @Html.RadioButtonFor(s => s.Aluno.VanAnterior, value: "true")Sim
+                @Html.RadioButtonFor(s => s.Aluno.VanAnterior, value: "false")Não
+                <span asp-validation-for="Aluno.VanAnterior" class="text-danger"></span>
+
+                <strong>
+                    <input asp-for="Aluno.QualEscolar" class="form-control" placeholder="Qual tio?" />
+                </strong>
+                <span asp-validation-for="Aluno.QualEscolar" class="text-danger"></span>
+            </div>
+            <hr />
+            <h3><strong>E S C O L A</strong></h3>
+            <hr />
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Escola" class="control-label"></label>
+                </strong>
+                <div> @Html.DropDownListFor(s => s.Aluno.EscolaId, Model.ComboEscolas, "Selecione uma Escola")</div>
+                <span asp-validation-for="Aluno.EscolaId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-1">
+                <strong>
+                    <label asp-for="Aluno.Serie" class="control-label"></label>
+                </strong>
+                <div>
+                    @Html.DropDownListFor(s => s.Aluno.Serie, Model.ComboSeries, "Série")
+                </div>
+                <span asp-validation-for="Aluno.Serie" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Periodo" class="control-label"></label>
+                </strong>
+                <div>
+                    @Html.RadioButtonFor(s => s.Aluno.Periodo, value: "Manhã")Manhã
+                    @Html.RadioButtonFor(s => s.Aluno.Periodo, value: "Tarde")Tarde
+                    <span asp-validation-for="Aluno.Periodo" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <h3><strong>F I N A N C E I R O</strong></h3>
+            <hr />
+            <div class="form-group col-md-4">
+                <strong>
+                    <label asp-for="Aluno.RespFinan" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.RespFinan" class="form-control" />
+                <span asp-validation-for="Aluno.RespFinan" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Rg" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Rg" class="form-control" placeholder="Informe o N° do RG" />
+                <span asp-validation-for="Aluno.Rg" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <strong>
+                    <label asp-for="Aluno.Cpf" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Cpf" class="form-control" placeholder="somente números" oninput="mascara(this,'cpf')" id="cpf" />
+                <span asp-validation-for="Aluno.Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <strong>
+                    <label asp-for="Aluno.Email" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Email" class="form-control" />
+                <span asp-validation-for="Aluno.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <strong>
+                    <label asp-for="Aluno.Profissao" class="control-label"></label>
+                </strong>
+                <input asp-for="Aluno.Profissao" class="form-control" />
+                <span asp-validation-for="Aluno.Profissao" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <strong>
+                    <label asp-for="Aluno.FirmaRec" class="control-label"></label>
+                </strong>
+                @Html.RadioButtonFor(s => s.Aluno.FirmaRec, value: "true")Sim
+                @Html.RadioButtonFor(s => s.Aluno.FirmaRec, value: "false")Não
+                <span asp-validation-for="Aluno.FirmaRec" class="text-danger"></span>
+
+                <strong>
+                    <input asp-for="Aluno.Cartorio" class="form-control" placeholder="Se souber, informe o nome do cartório" />
+                </strong>
+                <span asp-validation-for="Aluno.Cartorio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="borda row justify-content-end">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary marcador col-3" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

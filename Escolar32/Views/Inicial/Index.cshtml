@@ -11,28 +11,59 @@
     </div>
     <div class="col-md-3 col-md-offset-2">
 
-        <form method="post">
-                <h4>Entre com o usuario e a senha enviados pelo WhatssApp</h4>
-                <hr />
-                <div>
-                    <input type="text" name="usuario" class="form-control" placeholder="Usuário" aria-required="true"/>
+        <form id="loginForm" method="post">
+
+            <h4>Entre com o usuário e a senha enviados pelo WhatsApp</h4>
+            <hr />
+            <div>
+                <input type="text" name="usuario" class="form-control" placeholder="Usuário" aria-required="true" />
+            </div>
+
+            <br />
+
+            <div>
+                <input type="text" name="senha" class="form-control" placeholder="Senha" aria-required="true" />
+            </div>
+
+            <br />
+
+            <div>
+                <div class="checkbox">
+                    <button type="submit" class="form-control btn-primary">Acessar</button>
                 </div>
-
-                <br />
-
-                <div>
-                    <input type="text" name="senha" class="form-control" placeholder="Senha" aria-required="true"/>
-                </div>
-
-                <br/>
-
-                <div>
-                    <div class="checkbox" >
-                    <button class="form-control btn-primary">Acessar</button>
-                    </div>
-                </div>
-                
-            </form>
+            </div>
+        </form>
         
     </div>
 </div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+        // Previne o envio do formulário para manipulação dos dados
+        e.preventDefault();
+
+        // Captura os campos de entrada
+        const usuarioInput = document.querySelector("input[name='usuario']");
+        const senhaInput = document.querySelector("input[name='senha']");
+
+        // Processa os valores: remove espaços e converte para letras minúsculas
+        const usuario = usuarioInput.value.trim().toLowerCase();
+        const senha = senhaInput.value.trim().toLowerCase();
+
+        // Atualiza os campos com os valores processados
+        usuarioInput.value = usuario;
+        senhaInput.value = senha;
+
+        // Submete o formulário
+        this.submit();
+    });
+
+
+</script>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <script>
+        alert('@ViewBag.ErrorMessage');
+    </script>
+}

@@ -17,7 +17,7 @@ namespace Escolar32.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.1")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -59,6 +59,9 @@ namespace Escolar32.Migrations
                         .HasColumnType("nvarchar(14)");
 
                     b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataContrato")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataFim")
@@ -195,7 +198,7 @@ namespace Escolar32.Migrations
 
                     b.HasIndex("EscolaId");
 
-                    b.ToTable("Alunos", (string)null);
+                    b.ToTable("Alunos");
                 });
 
             modelBuilder.Entity("Escolar32.Models.Bairro", b =>
@@ -212,7 +215,7 @@ namespace Escolar32.Migrations
 
                     b.HasKey("BairroId");
 
-                    b.ToTable("Bairros", (string)null);
+                    b.ToTable("Bairros");
                 });
 
             modelBuilder.Entity("Escolar32.Models.Despesa", b =>
@@ -244,7 +247,7 @@ namespace Escolar32.Migrations
 
                     b.HasKey("DespesaId");
 
-                    b.ToTable("Despesas", (string)null);
+                    b.ToTable("Despesas");
                 });
 
             modelBuilder.Entity("Escolar32.Models.Escola", b =>
@@ -265,7 +268,7 @@ namespace Escolar32.Migrations
 
                     b.HasKey("EscolaId");
 
-                    b.ToTable("Escolas", (string)null);
+                    b.ToTable("Escolas");
                 });
 
             modelBuilder.Entity("Escolar32.Models.Receita", b =>
@@ -296,7 +299,23 @@ namespace Escolar32.Migrations
 
                     b.HasKey("ReceitaId");
 
-                    b.ToTable("Receitas", (string)null);
+                    b.ToTable("Receitas");
+                });
+
+            modelBuilder.Entity("Escolar32.Models.Relatorio", b =>
+                {
+                    b.Property<int>("RelatorioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RelatorioId"));
+
+                    b.Property<string>("DataRelatorio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RelatorioId");
+
+                    b.ToTable("Relatorio");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

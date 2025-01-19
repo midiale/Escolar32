@@ -45,7 +45,7 @@ namespace Escolar32.Services
                 user.LockoutEnabled = false;
                 user.SecurityStamp = Guid.NewGuid().ToString();
 
-                IdentityResult result = _userManager.CreateAsync(user, "xxx").Result;
+                IdentityResult result = _userManager.CreateAsync(user, "Numsey#2023").Result;
 
                 if (result.Succeeded)
                 {
@@ -64,7 +64,7 @@ namespace Escolar32.Services
                 user.LockoutEnabled = false;
                 user.SecurityStamp = Guid.NewGuid().ToString();
 
-                IdentityResult result = _userManager.CreateAsync(user, "xxx").Result;
+                IdentityResult result = _userManager.CreateAsync(user, "Numsey#2023").Result;
 
                 if (result.Succeeded)
                 {

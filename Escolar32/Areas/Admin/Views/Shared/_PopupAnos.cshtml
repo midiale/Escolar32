@@ -1,0 +1,10 @@
+﻿<div id="popup-anos" class="popup">
+    <select id="dropdown-anos" class="form-control">
+        <option value="">--Selecione um Ano --</option>
+        @foreach (var ano in Model)
+        {
+            <option value="@ano">@ano</option>
+        }
+    </select>
+</div>
+

@@ -29,6 +29,7 @@ namespace Escolar32.Context
                 .HasForeignKey(a => a.EscolaId)
                 .IsRequired(false);
         }
+        public DbSet<Escolar32.Models.Relatorio> Relatorio { get; set; }
 
     }
 }
